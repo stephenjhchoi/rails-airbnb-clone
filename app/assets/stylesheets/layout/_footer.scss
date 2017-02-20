@@ -1,1 +1,37 @@
-// Your footer style
+
+#footer {
+  background: #333333;
+  color: #CCCCCC;
+  height: 70px;
+  border-top: 3px solid #59b1eb;
+
+  a {
+    font-size: 30px;
+    padding: 10px;
+    transition: color 0.5s ease;
+    color: #CCCCCC;
+  }
+
+  a:hover{
+    color: $link-hover-color;
+  }
+
+  .footer-flex-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 70px;
+  }
+
+  .footer-flex-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 70px;
+  }
+}
+
+
+
+
+

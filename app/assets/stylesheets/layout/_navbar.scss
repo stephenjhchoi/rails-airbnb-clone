@@ -4,10 +4,11 @@
   background: white;
   transition: all 0.3s ease;
   display: flex;
-  height: 70px;
+  height: 65px;
   padding: 0px 30px;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 3px solid #59b1eb;
 }
 
 /* Optional class to fix the navbar on top */
@@ -44,7 +45,7 @@
   font-size: 14px;
 }
 .navbar-wagon-link:hover {
-  color: #da552f;
+  color: $link-hover-color;
   text-decoration: none;
 }
 
