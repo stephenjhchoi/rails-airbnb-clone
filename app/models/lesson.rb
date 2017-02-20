@@ -1,5 +1,6 @@
 class Lesson < ApplicationRecord
   belongs_to :user
+  has_one :booking
 
   validates :category, presence: true
   validates :price, presence: true

@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :lessons, dependent: :destroy
   has_many :bookings, dependent: :destroy
 
-  validates :username, uniquness: true, presence: true
-  validates :email, uniquness: true, presence: true
+  validates :username, uniqueness: true, presence: true
+  validates :email, uniqueness: true, presence: true
 end
 
