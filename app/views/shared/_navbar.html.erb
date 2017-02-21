@@ -4,9 +4,7 @@
     <%= image_tag "logo-workout.png" %>
   <% end %>
 
-  <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "website_name.png" %>
-  <% end %>
+
 
 
   <!-- Right Navigation -->
@@ -20,11 +18,11 @@
       </button>
     </form>
 
-    <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
-    <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
+    <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+    <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
 
       <!-- Notification -->
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
