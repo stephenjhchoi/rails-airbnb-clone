@@ -4,7 +4,7 @@ class Lesson < ApplicationRecord
 
   validates :category, presence: true
   validates :price, presence: true
-  validates :date, presence: true
+  validates :start_date_time, presence: true
   validates :duration, presence: true
   validates :description, presence: true
   validates :neighborhood, presence: true

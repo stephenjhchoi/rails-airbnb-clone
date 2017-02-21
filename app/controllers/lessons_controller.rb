@@ -15,7 +15,7 @@ class LessonsController < ApplicationController
   end
 
   def create
-    @lesson = Lesson.new(lesson_params)
+    @lesson = current_user.lessons.build(lesson_params)
     if @lesson.save
       redirect_to lessons_path
     else
@@ -46,7 +46,7 @@ class LessonsController < ApplicationController
   end
 
   def lesson_params
-    params.require(:lesson).permit(:category, :price, :date, :duration, :desription, :neighborhood)
+    params.require(:lesson).permit(:category, :price, :start_date_time, :duration, :description, :neighborhood)
   end
 
 end
