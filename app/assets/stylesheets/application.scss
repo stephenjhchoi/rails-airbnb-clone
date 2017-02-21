@@ -6,6 +6,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome-sprockets";
+@import 'bootstrap-datetimepicker';
 @import "font-awesome";
 
 // Your CSS
@@ -13,3 +14,4 @@
 @import "components/index";
 @import "pages/index";
 @import "vendor/index";
+
