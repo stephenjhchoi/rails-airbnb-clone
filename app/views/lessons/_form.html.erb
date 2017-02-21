@@ -6,7 +6,7 @@
       <%= simple_form_for(@lesson) do |f| %>
       <%= f.error_notification %>
 
-      <%= f.input :category, collection: ['Yoga', 'Cardio', 'Weight Lifting', 'Pilates', 'Tennis', 'Boxing'] %>
+      <%= f.input :category, collection: Lesson::CATEGORIES %>
 
       <%= f.input :price %>
 

@@ -27,13 +27,10 @@
     </div>
 
     <select name='cat' class="custom-select box_size">
-      <option selected>Choose Category</option>
-      <option value="1">Yoga</option>
-      <option value="2">Cardio</option>
-      <option value="3">Pilates</option>
-      <option value="4">Weight Lifting</option>
-      <option value="5">Boxing</option>
-      <option value="6">Tennis</option>
+      <option value="" selected>Choose Category</option>
+      <% Lesson::CATEGORIES.each do |category| %>
+        <option value="<%= category %>"><%= category %></option>
+      <% end %>
     </select>
 
     <input type="submit" class="btn btn-primary btn-lg text-center box_size" value="Search">
