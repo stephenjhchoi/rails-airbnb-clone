@@ -1,47 +1,42 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url(<%= image_path "banner.png" %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= image_path "banner.png" %>');">
 </div>
 
 
 <div class="banner-content">
   <h1 class="title">Coachy</h1>
   <p>Book a personal trainer at an affordable price</p>
-  <form action="#" class="form-inline">
+
+  <form action="<%= lessons_path %>" class="form-inline">
     <!-- <input type="text" class="form-control input-lg" placeholder="Date"> -->
-  <div class="form-group">
-    <div class='input-group date' id='datetimepicker1'>
-      <input type='text' class="form-control" placeholder="Date" />
-      <span class="input-group-addon">
-        <span class="glyphicon glyphicon-calendar"></span>
-      </span>
-    </div>
-  </div>
-    <script type="text/javascript">
-      $(function () {
-        $('#datetimepicker1').datetimepicker();
-      });
-    </script>
-
-
-    <!-- <input type="text" class="form-control input-lg" placeholder="Time"> -->
-
     <div class="form-group">
-      <div class='input-group date' id='datetimepicker3'>
-        <input type='text' class="form-control" placeholder="Time"/>
+      <div class='input-group date' id='datetimepicker'>
+        <input type='text' name='datetime' class="form-control" placeholder="Date"/>
         <span class="input-group-addon">
-          <span class="glyphicon glyphicon-time"></span>
+          <span class="glyphicon glyphicon-calendar"></span>
         </span>
       </div>
     </div>
-    <script type="text/javascript">
-      $(function () {
-        $('#datetimepicker3').datetimepicker({
-          format: 'LT'
-        });
-      });
-    </script>
+
+    <div class="form-group">
+    <div class='input-group location' id='locationpicker'>
+        <input type="text" class="form-control input-lg box_size" placeholder="Location">
+        <span class="input-group-addon">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
 
 
-    <input type="text" class="form-control input-lg box_size" placeholder="Location">
+    <select class="custom-select box_size">
+      <option selected>Choose Category</option>
+      <option value="1">Yoga</option>
+      <option value="2">Cardio</option>
+      <option value="3">Pilates</option>
+      <option value="4">Weight Lifting</option>
+      <option value="5">Boxing</option>
+      <option value="6">Tennis</option>
+    </select>
+
     <input type="submit" class="btn btn-primary btn-lg text-center box_size" value="Search">
   </form>
 
