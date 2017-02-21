@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
-
-    before_action :set_lesson, only: :show
-    #before_action: set_lessons, only: [:show, :edit, :update, :destroy]
+  before_action :set_lesson, only: :show
+  #before_action :set_lessons, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :index
 
   def index
     @lessons = Lesson.all
