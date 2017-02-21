@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
 
-    before_action: set_lesson, only: :show
+    before_action :set_lesson, only: :show
     #before_action: set_lessons, only: [:show, :edit, :update, :destroy]
 
   def index
