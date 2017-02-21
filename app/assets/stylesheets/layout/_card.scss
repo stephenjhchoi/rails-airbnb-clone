@@ -11,6 +11,7 @@
   border-width: 1px;
   border-style: solid;
   border-radius: 5px;
+  background-position: bottom;
 }
 .card-user {
   position: absolute;
@@ -39,5 +40,5 @@
   opacity: 0;
 }
 .card-link:hover{
-  opacity: 0.1;
+  opacity: 0.3;
 }
