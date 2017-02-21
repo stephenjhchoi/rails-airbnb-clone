@@ -1,0 +1,35 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('background.jpg');">
+  <div class="banner-content">
+    <h1><%= @lesson.category %></h1>
+  </div>
+</div>
+
+<div class="container text-center" style="padding: 100px 0;">
+  <div class="about-trainer">
+
+    <div class="trainer-info col-xs-4 text-center">
+      <%  if @lesson.user.facebook_picture_url? %>
+      <%= image_tag @lesson.user.facebook_picture_url %>
+      <% else %>
+      <%= image_tag "nopic.png", class: "trainer-img"%>
+      <% end %>
+       <h4>Takahiro Hasegawa</h4>
+     <!--  <h4><%= @lesson.user.username %></h4> -->
+    </div>
+
+    <div class="about col-xs-6">
+     <h3>Description:<%= @lesson.description %></h3>
+      <h4>About Trainer</h4>
+      <p>I am a guy who has been training in the mountain as a monk</p>
+      <!-- <p><%= @lesson.user.bio %></p> -->
+    </div>
+
+  </div>
+
+  <div class="book col-xs-2">
+    <h3><%= @lesson.price %>/<%= @lesson.duration %></h3>
+    <%= simple_form_for @booking do |f| %>
+      <%= f.submit "BOOK", class: "btn btn-lg btn-primary" %>
+    <% end %>
+  </div>
+</div>

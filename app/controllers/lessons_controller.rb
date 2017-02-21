@@ -1,13 +1,14 @@
 class LessonsController < ApplicationController
   before_action :set_lesson, only: :show
   #before_action :set_lessons, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index,:show]
 
   def index
     @lessons = Lesson.all
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
