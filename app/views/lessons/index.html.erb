@@ -3,42 +3,43 @@
   <div class="row">
     <div class="coach-cards-container">
 
-    <div class="coach-card">
-      <div class="coach-card-image" style="background-image: url(<%= image_path 'allison.jpg' %>);">
-      </div>
-      <div class="coach-card-info">
-        <p><strong>$40/lesson</strong></p>
-        <p><strong>4.5 Stars</strong></p>
-        <p><strong>Bikram Yoga</strong></p>
-      </div>
-      <div class="coach-card-title">
-        <h4> Allison Grekin </h4>
-      </div>
-      <div class="coach-card-date">
-        <p>London/Soho</p>
-      </div>
-      <a href="#" class="coach-card-link"></a>
-    </div>
+    <% @lessons.each do |lesson| %>
 
+      <div class="coach-card">
+        <div class="coach-card-image" style="background-image: url(<%= image_path 'allison.jpg' %>);">
+        </div>
+        <div class="coach-card-info">
+          <p><strong><%= lesson.price %></strong></p>
+          <p><strong>4.5 Stars</strong></p>
+          <p><strong><%= lesson.category %></strong></p>
+          <p><strong>Bikram Yoga</strong></p>
+        </div>
+          <div class="coach-card-title">
+            <h4><%= lesson.username.upcase %> </h4>
+          </div>
+            <div class="coach-card-date">
+              <p><%= lesson.neighborhood %></p>
+            </div>
+            <a href="#" class="coach-card-link"></a>
+      </div>
+      <% end %>
 
-    <div class="coach-card">
-      <div class="coach-card-image" style="background-image: url(<%= image_path 'remi.jpg' %>);">
-      </div>
-      <div class="coach-card-info">
-        <p><strong>$15/lesson</strong></p>
-        <p><strong>3.2 Stars</strong></p>
-        <p><strong>Sexy Yoga</strong></p>
-      </div>
-      <div class="coach-card-title">
-        <h4> Remi d'Yvoire </h4>
-      </div>
-      <div class="coach-card-date">
-        <p>London/Holborn</p>
-      </div>
-      <a href="#" class="coach-card-link"></a>
-    </div>
-
-
+        <!-- <div class="coach-card">
+          <div class="coach-card-image" style="background-image: url(<%= image_path 'remi.jpg' %>);">
+          </div>
+          <div class="coach-card-info">
+            <p><strong>$15/lesson</strong></p>
+            <p><strong>3.2 Stars</strong></p>
+            <p><strong>Sexy Yoga</strong></p>
+          </div>
+            <div class="coach-card-title">
+              <h4> Remi d'Yvoire </h4>
+            </div>
+              <div class="coach-card-date">
+                <p>London/Holborn</p>
+              </div>
+              <a href="#" class="coach-card-link"></a>
+        </div> -->
     </div>
   </div>
 </div>
