@@ -43,7 +43,13 @@
 
     <input type="text" class="form-control input-lg box_size" placeholder="Location">
     <input type="submit" class="btn btn-primary btn-lg text-center box_size" value="Search">
-  </form>
+
+    <%= form_tag lessons_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", name: nil %>
+    </p>
+    <% end %>
 
   <br>
   <br>

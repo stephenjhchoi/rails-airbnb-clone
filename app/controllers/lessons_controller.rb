@@ -1,10 +1,12 @@
 class LessonsController < ApplicationController
 
     before_action :set_lesson, only: :show
+    skip_before_action :authenticate_user!, only: :home
     #before_action: set_lessons, only: [:show, :edit, :update, :destroy]
 
   def index
     @lessons = Lesson.all
+    @lessons = Lesson.search(params[:search])
   end
 
   def show
