@@ -1,8 +1,13 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png" %>
+    <%= image_tag "logo-workout.png" %>
   <% end %>
+
+  <%= link_to root_path, class: "navbar-wagon-brand" do %>
+    <%= image_tag "website_name.png" %>
+  <% end %>
+
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -57,8 +62,7 @@
 
     <% end %>
 
-    <!-- Button (call-to-action) -->
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+
   </div>
 
   <!-- Dropdown list appearing on mobile only -->
