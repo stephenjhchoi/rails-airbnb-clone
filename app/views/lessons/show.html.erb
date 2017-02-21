@@ -28,7 +28,7 @@
 
   <div class="book col-xs-2">
     <h3><%= @lesson.price %>/<%= @lesson.duration %></h3>
-    <%= simple_form_for @booking do |f| %>
+    <%= simple_form_for [@lesson, @booking] do |f| %>
       <%= f.submit "BOOK", class: "btn btn-lg btn-primary" %>
     <% end %>
   </div>
