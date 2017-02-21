@@ -5,7 +5,9 @@ class LessonsController < ApplicationController
 
   def index
     @lessons = Lesson.all
-    @lessons = Lesson.search(params[:search])
+    @lessons = @lessons.where(neighborhood: params[:loc]) if params[:loc]
+    @lessons = @lessons.where(category: params[:cat]) if params[:cat]
+    @lessons = @lessons.where(start_time: params[:date]) if params[:date]
   end
 
   def show
