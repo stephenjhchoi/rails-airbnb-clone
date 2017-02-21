@@ -1,13 +1,17 @@
 class LessonsController < ApplicationController
   before_action :set_lesson, only: :show
   #before_action :set_lessons, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: [:index,:show]
 
   def index
     @lessons = Lesson.all
+    @lessons = @lessons.where(neighborhood: params[:loc]) if params[:loc]
+    @lessons = @lessons.where(category: params[:cat]) if params[:cat]
+    @lessons = @lessons.where(start_time: params[:date]) if params[:date]
   end
 
   def show
+    @booking = Booking.new
   end
 
   def new
