@@ -11,3 +11,8 @@
   border-color: #59b1eb;
   color: #59b1eb;
 }
+.wrapper-login {
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 135px);
+}
