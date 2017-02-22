@@ -9,6 +9,7 @@
         <div class="coach-card-image" style="background-image: url(<%= image_path 'lesson.user.facebook_picture_url' %>);">
         </div>
         <div class="coach-card-info">
+          <p><strong><%= lesson.category %></strong></p>
           <p><strong>£ <%= lesson.price %></strong></p>
           <p><strong><%= lesson.category %></strong></p>
         </div>
@@ -20,7 +21,7 @@
             <div class="coach-card-date">
               <p><%= lesson.neighborhood %></p>
             </div>
-            <a href="#" class="coach-card-link"></a>
+            <%= link_to lesson_path, class: "coach-card-link" %>
       </div>
       <% end %>
 
