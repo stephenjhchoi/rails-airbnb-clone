@@ -13,15 +13,13 @@
       <% else %>
       <%= image_tag "nopic.png", class: "trainer-img"%>
       <% end %>
-       <h4>Some dude</h4>
-     <!--  <h4><%= @lesson.user.username %></h4> -->
+     <h4><%= @lesson.user.first_name %></h4>
     </div>
 
     <div class="about col-xs-6">
      <h3>Description:<%= @lesson.description %></h3>
       <h4>About Trainer</h4>
-      <p>I am a guy who has been training in the mountain as a monk</p>
-      <!-- <p><%= @lesson.user.bio %></p> -->
+      <p><%= @lesson.user.bio %></p>
     </div>
 
   </div>
