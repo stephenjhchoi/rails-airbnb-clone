@@ -4,7 +4,8 @@
 
 <div class="banner-content">
   <h1 class="title">Coachy</h1>
-  <p>Book a personal trainer at an affordable price</p>
+  <strong><h4>Book a personal trainer at an affordable price</h4></strong>
+  <br>
 
   <form action="<%= lessons_path %>" class="form-inline">
     <!-- <input type="text" class="form-control input-lg" placeholder="Date"> -->
@@ -17,14 +18,22 @@
       </div>
     </div>
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <div class='input-group' id='locationpicker'>
         <input type="text" name='loc' class="form-control" placeholder="Location">
         <span class="input-group-addon">
           <i class="fa fa-map-marker"></i>
         </span>
       </div>
-    </div>
+    </div> -->
+
+    <select name='cat' class="custom-select box_size_cat">
+      <option value="" selected>Choose Neighborhood</option>
+      <% Lesson::NEIGHBORHOOD.each do |neighborhood| %>
+        <option value="<%= neighborhood %>"><%= neighborhood %></option>
+      <% end %>
+
+    </select>
 
 
 

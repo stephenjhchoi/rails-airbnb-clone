@@ -3,23 +3,27 @@
   <div class="row">
     <div class="coach-cards-container">
 
-    <% @lessons.each do |lesson| %>
+      <% @lessons.each do |lesson| %>
 
       <div class="coach-card">
         <div class="coach-card-image" style="background-image: url('<%= lesson.user.facebook_picture_url %>');">
         </div>
         <div class="coach-card-info">
           <p><strong><%= lesson.category %></strong></p>
-          <p><strong>£ <%= lesson.price %></strong></p>
-          <p><strong><%= lesson.category %></strong></p>
-        </div>
-          <div class="coach-card-title">
 
-            <h4><%= lesson.user.first_name%> </h4>
+          <p><strong>£<%= lesson.price %></strong></p>
+          <p><strong><%= lesson.description %></strong></p>
+          <p><strong><%= lesson.neighborhood %></strong></p>
+          <p><strong><%= lesson.start_date_time %></strong></p>
+        </div>
+        <div class="coach-card-title">
+
+
+            <h4><%= lesson.user.first_name%> <%= lesson.user.last_name%></h4>
 
           </div>
             <div class="coach-card-date">
-              <p><%= lesson.neighborhood %></p>
+              <p><%= lesson.neighborhood %>, <%= lesson.price %></p>
             </div>
             <%= link_to "this", lesson_path(lesson), class: "coach-card-link" %>
       </div>
@@ -29,6 +33,28 @@
     </div>
   </div>
 </div>
+
+<div id="map" style="width: 100%; height: 600px;"></div>
+
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  </script>
+<% end %>
+
+
 
 
 
