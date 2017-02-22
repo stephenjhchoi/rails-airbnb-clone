@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   mount Attachinary::Engine => "/attachinary"
   root to: 'pages#home'
   get "/thank_you", to: 'pages#thank_you'
-  get "/dashboard", to: 'registration#show'
+  get "/dashboard", to: 'dashboards#show'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :lessons do
