@@ -6,22 +6,26 @@
       <% @lessons.each do |lesson| %>
 
       <div class="coach-card">
-        <div class="coach-card-image" style="background-image: url(<%= image_path 'allison.jpg' %>);">
+        <div class="coach-card-image" style="background-image: url('<%= lesson.user.facebook_picture_url %>');">
         </div>
         <div class="coach-card-info">
           <p><strong><%= lesson.category %></strong></p>
-          <p><strong>£ <%= lesson.price %></strong></p>
+
+          <p><strong>£<%= lesson.price %></strong></p>
+          <p><strong><%= lesson.description %></strong></p>
+          <p><strong><%= lesson.neighborhood %></strong></p>
           <p><strong><%= lesson.start_date_time %></strong></p>
         </div>
         <div class="coach-card-title">
 
-          <h4><%= lesson.user.first_name %> </h4>
 
-        </div>
-        <div class="coach-card-date">
-          <p><%= lesson.neighborhood %></p>
-        </div>
-        <a href="#" class="coach-card-link"></a>
+            <h4><%= lesson.user.first_name%> <%= lesson.user.last_name%></h4>
+
+          </div>
+            <div class="coach-card-date">
+              <p><%= lesson.neighborhood %>, <%= lesson.price %></p>
+            </div>
+            <%= link_to "this", lesson_path(lesson), class: "coach-card-link" %>
       </div>
       <% end %>
 
