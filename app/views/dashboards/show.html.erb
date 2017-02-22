@@ -8,53 +8,67 @@
   <% end %>
   <h3><%= current_user.username %></h3>
   <h1>My Dashboard</h1>
-  <%= link_to "edit Profile", edit_user_registration_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-lg btn-primary" %>
   <%= link_to "create a new lesson", new_lesson_path, class: "btn btn-lg btn-primary" %>
 </div>
 
 <div class="dashboard">
-  <h1>Booked Lessons</h1>
-  <% current_user.bookings do |booking|%>
-    <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('background.jpg');">
+  <div class="student_lesson">
+    <h1>Lessons for student</h1>
+    <% current_user.bookings.each do |booking|%>
+      <div class="card">
 
-        <% if current_user == booking.lesson.user %>
-          <div class="card-lesson-avatar">
-            <h3>Student</h3>
-            <% if booking.user.photo? %>
-              <%= image_tag booking.user.photo, class: "user-pic" %>
-            <% elsif booking.user.facebook_picture_url?%>
-              <%= image_tag booking.user.facebook_picture_url, class: "user-pic" %>
-            <% else %>
-              <%= image_tag "http://placehold.it/30x30",  class: "user-pic" %>
-            <% end %>
-            <h3><%= booking.user.first_name %></h3>
-          </div>
+        <div class="card-lesson-avatar">
+              <h3>Trainer</h3>
+              <% if booking.lesson.user.photo? %>
+                <%= image_tag booking.lesson.user.photo, class: "user-pic" %>
+              <% elsif booking.lesson.user.facebook_picture_url?%>
+                <%= image_tag booking.lesson.user.facebook_picture_url, class: "user-pic" %>
+              <% else %>
+                <%= image_tag "http://placehold.it/30x30",  class: "user-pic" %>
+              <% end %>
+              <h3><%= booking.lesson.user.first_name %></h3>
+        </div>
 
-          <% if  %>
-
-          <% end %>
-        <% else %>
-          <div class="card-lesson-avatar">
-            <h3>Trainer</h3>
-            <% if booking.lesson.user.photo? %>
-              <%= image_tag booking.lesson.user.photo, class: "user-pic" %>
-            <% elsif booking.lesson.user.facebook_picture_url?%>
-              <%= image_tag booking.lesson.user.facebook_picture_url, class: "user-pic" %>
-            <% else %>
-              <%= image_tag "http://placehold.it/30x30",  class: "user-pic" %>
-            <% end %>
-            <h3><%= booking.lesson.user.first_name %></h3>
-          </div>
-      <% end %>
-
-      <div class="card-description">
-        <h4><%= booking.lesson.date %></h4>
-        <h4><%= booking.lesson.duration %></h4>
-        <h3><%= booking.lesson.category %></h3>
-        <h5><%= booking.lesson.price %></h5>
-        <p><%= booking.location %></p>
+        <div class="card-description">
+          <h4><%= booking.lesson.date %></h4>
+          <h4><%= booking.lesson.duration %></h4>
+          <h3><%= booking.lesson.category %></h3>
+          <h5><%= booking.lesson.price %></h5>
+          <p><%= booking.location %></p>
+        </div>
+        <a class="card-link" href="#" ></a>
       </div>
-      <a class="card-link" href="#" ></a>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+
+  <div class="coach_lesson">
+    <h1>Lessons for coach</h1>
+    <% current_user.lessons.each do |lesson|%>
+      <div class="card">
+
+        <div class="card-lesson-avatar">
+          <h3>Student</h3>
+          <% if lesson.booking.user.photo? %>
+            <%= image_tag lesson.booking.user.photo, class: "user-pic" %>
+          <% elsif lesson.booking.user.facebook_picture_url?%>
+            <%= image_tag lesson.booking.user.facebook_picture_url, class: "user-pic" %>
+          <% else %>
+            <%= image_tag "http://placehold.it/30x30",  class: "user-pic" %>
+          <% end %>
+          <h3><%= lesson.booking.user.first_name %></h3>
+        </div>
+
+        <div class="card-description">
+          <h4><%= lesson.date %></h4>
+          <h4><%= lesson.duration %></h4>
+          <h3><%= lesson.category %></h3>
+          <h5><%= lesson.price %></h5>
+          <p><%= lesson.booking.location %></p>
+        </div>
+        <a class="card-link" href="#" ></a>
+      </div>
+    <% end %>
+  </div>
 </div>
+
