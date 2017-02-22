@@ -38,7 +38,7 @@
           <p><%= booking.location %></p>
           <h5><%= booking.status %></h5>
         </div>
-        <a class="card-link" href="#" ></a>
+        <%= link_to lesson_path(booking.lesson), class: "card-link" %>
       </div>
     <% end %>
   </div>
@@ -71,7 +71,7 @@
         <div class="lesson-status">
           <h5><%= lesson.booking.status %></h5>
         </div>
-        <a class="card-link" href="#" ></a>
+        <%= link_to lesson_path(lesson), class: "card-link" %>
       </div>
     <% end %>
   </div>
