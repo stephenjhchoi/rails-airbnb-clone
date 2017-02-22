@@ -6,7 +6,7 @@
     <% @lessons.each do |lesson| %>
 
       <div class="coach-card">
-        <div class="coach-card-image" style="background-image: url(<%= image_path 'lesson.user.facebook_picture_url' %>);">
+        <div class="coach-card-image" style="background-image: url('<%= lesson.user.facebook_picture_url %>');">
         </div>
         <div class="coach-card-info">
           <p><strong><%= lesson.category %></strong></p>
