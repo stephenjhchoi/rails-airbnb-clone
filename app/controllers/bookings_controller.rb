@@ -11,14 +11,14 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
+    @booking = Booking.new
     @booking.user = current_user
+    @booking.status = 'pending'
     @booking.lesson = Lesson.find(params[:lesson_id])
 
     if @booking.save
-      redirect_to thank_you_path
-    else
-      render :new
+      flash[:notice] = "Thanks for booking #{@booking.lesson.user.username ? 'with ' + @booking.lesson.user.username : '! '}"
+      redirect_to dashboard_path
     end
   end
 
