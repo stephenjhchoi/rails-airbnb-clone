@@ -16,7 +16,7 @@
 
        <%= f.input :description, label:'Description', as: :string %>
 
-       <%= f.input :neighborhood, label:'Neighborhood', as: :string %>
+       <%= f.input :neighborhood, collection: Lesson::NEIGHBORHOOD %>
 
       <%= f.button :submit %>
       <br>
