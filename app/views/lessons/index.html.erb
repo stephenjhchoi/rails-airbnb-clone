@@ -10,18 +10,20 @@
         </div>
         <div class="coach-card-info">
           <p><strong><%= lesson.category %></strong></p>
-          <p><strong>£ <%= lesson.price %></strong></p>
-          <p><strong><%= lesson.category %></strong></p>
+          <p><strong><%= lesson.price %></strong></p>
+          <p><strong><%= lesson.description %></strong></p>
+          <p><strong><%= lesson.neighborhood %></strong></p>
+          <p><strong><%= lesson.start_date_time %></strong></p>
         </div>
           <div class="coach-card-title">
 
-            <h4><%= lesson.user.first_name%> </h4>
+            <h4><%= lesson.user.first_name%> <%= lesson.user.last_name%></h4>
 
           </div>
             <div class="coach-card-date">
-              <p><%= lesson.neighborhood %></p>
+              <p><%= lesson.neighborhood %>, <%= lesson.price %></p>
             </div>
-            <%= link_to lesson_path(lesson), class: "coach-card-link" %>
+            <%= link_to "this", lesson_path(lesson), class: "coach-card-link" %>
       </div>
       <% end %>
 
