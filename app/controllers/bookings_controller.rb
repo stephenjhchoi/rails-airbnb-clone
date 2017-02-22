@@ -13,7 +13,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    @booking.lesson = Lesson.find(params[:id])
+    @booking.lesson = Lesson.find(params[:lesson_id])
 
     if @booking.save
       redirect_to thank_you_path

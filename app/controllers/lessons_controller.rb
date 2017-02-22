@@ -5,9 +5,9 @@ class LessonsController < ApplicationController
 
   def index
     @lessons = Lesson.all
-    @lessons = @lessons.where(neighborhood: params[:loc]) if params[:loc]
-    @lessons = @lessons.where(category: params[:cat]) if params[:cat]
-    @lessons = @lessons.where(start_time: params[:date]) if params[:date]
+    @lessons = @lessons.where(neighborhood: params[:loc]) if !params[:loc].blank?
+    @lessons = @lessons.where(category: params[:cat]) if !params[:cat].blank?
+    # @lessons = @lessons.where(start_date_time: params[:date]) if params[:date]
   end
 
   def show
@@ -19,7 +19,7 @@ class LessonsController < ApplicationController
   end
 
   def create
-    @lesson = Lesson.new(lesson_params)
+    @lesson = current_user.lessons.build(lesson_params)
     if @lesson.save
       redirect_to lessons_path
     else
@@ -50,7 +50,7 @@ class LessonsController < ApplicationController
   end
 
   def lesson_params
-    params.require(:lesson).permit(:category, :price, :date, :duration, :desription, :neighborhood)
+    params.require(:lesson).permit(:category, :price, :start_date_time, :duration, :description, :neighborhood)
   end
 
 end
