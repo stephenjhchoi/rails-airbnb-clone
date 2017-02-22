@@ -26,7 +26,7 @@
   </div>
 
   <div class="book col-xs-2">
-    <h3>£<%= @lesson.price %>/<%= @lesson.duration %>hr</h3>
+    <h3>£<%= @lesson.price %>/<%= @lesson.duration %>mins</h3>
     <%= simple_form_for [@lesson, @booking] do |f| %>
       <%= f.submit "BOOK", class: "btn btn-lg btn-primary" %>
     <% end %>
