@@ -27,7 +27,7 @@
       </div>
     </div> -->
 
-    <select name='cat' class="custom-select box_size_cat">
+    <select name='neighborhood' class="custom-select box_size_cat">
       <option value="" selected>Choose Neighborhood</option>
       <% Lesson::NEIGHBORHOOD.each do |neighborhood| %>
         <option value="<%= neighborhood %>"><%= neighborhood %></option>
@@ -37,7 +37,7 @@
 
 
 
-    <select name='cat' class="custom-select box_size">
+    <select name='category' class="custom-select box_size">
       <option value="" selected>Choose Category</option>
       <% Lesson::CATEGORIES.each do |category| %>
         <option value="<%= category %>"><%= category %></option>
