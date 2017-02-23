@@ -72,3 +72,67 @@
   }
 }
 
+<<<<<<< HEAD
+=======
+.wrapper-coach {
+  display: flex;
+  align-items: center;
+  background-color: #F6F6F6;
+}
+
+
+.coach-img {
+  height: 100px;
+  width: 100px;
+}
+
+
+.user-img-circle{
+  border-radius: 50%;
+  width: 80px;
+}
+
+.trainer-details {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  padding-left: 0;
+  padding-top: 0;
+}
+
+
+.coach-info {
+
+  padding: 20px;
+
+  p {
+    color: #777777;
+    font-size: 14px;
+  }
+}
+
+.coach-about {
+  h1{
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 11px;
+  }
+  p {
+    color: #777777;
+    font-size: 14px;
+    margin: 0 0 11px;
+  }
+}
+
+.book-lesson {
+  margin-left: 50px;
+  h4 {
+    font-size: 18px;
+    margin-top: 6px;
+  }
+  form {
+  background-color: white;
+  padding: 15px;
+  }
+}
+>>>>>>> 233df39cbb4bab31d1e9ea1e3359145a47cf1912

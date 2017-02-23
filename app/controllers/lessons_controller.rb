@@ -29,7 +29,6 @@ class LessonsController < ApplicationController
     if @lesson.save
       redirect_to lessons_path
     else
-      render :new
     end
   end
 
