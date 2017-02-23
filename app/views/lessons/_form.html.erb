@@ -1,31 +1,35 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4 ">
+
+<div class="wrapper-login">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 ">
+      <h1>Create New Lesson</h1><br>
 
 
-      <%= simple_form_for(@lesson) do |f| %>
-      <%= f.error_notification %>
+        <%= simple_form_for(@lesson) do |f| %>
+        <%= f.error_notification %>
 
-      <%= f.input :category, collection: Lesson::CATEGORIES %>
+        <%= f.input :category, collection: Lesson::CATEGORIES %>
 
-      <%= f.input :price %>
+        <%= f.input :price %>
 
-      <%= f.input :start_date_time, label: 'Date & Time', as: :datetime %>
+        <%= f.input :start_date_time, label: 'Date & Time', as: :datetime %>
 
-      <%= f.input :duration, label:'Duration (min)', as: :integer %>
+        <%= f.input :duration, label:'Duration (min)', as: :integer %>
 
-       <%= f.input :description, label:'Description', as: :string %>
+        <%= f.input :description, label:'Description', as: :string %>
 
-       <%= f.input :neighborhood, collection: Lesson::NEIGHBORHOOD %>
+        <%= f.input :neighborhood, collection: Lesson::NEIGHBORHOOD %>
 
-      <%= f.button :submit %>
-      <br>
-      <br>
+        <%= f.button :submit, class:"submit-btn" %>
+        <br>
+        <br>
 
-      <button><%= link_to 'Back', root_path %></button>
+        <button class="back-btn"><%= link_to 'Back', root_path %></button>
 
-      <% end %>
+        <% end %>
 
+      </div>
     </div>
   </div>
 </div>
