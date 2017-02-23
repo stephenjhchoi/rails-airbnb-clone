@@ -11,3 +11,27 @@
   border-color: #59b1eb;
   color: #59b1eb;
 }
+
+.divider {
+  width:100%;
+  text-align:center;
+}
+
+.divider hr {
+  margin-left:auto;
+  margin-right:auto;
+  width:45%;
+  border-top: 1px solid #777777
+}
+
+.divider span{
+  line-height: 40px;
+}
+
+.left {
+  float:left;
+}
+
+.right {
+  float:right;
+}

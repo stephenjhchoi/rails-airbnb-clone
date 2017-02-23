@@ -8,6 +8,11 @@ class LessonsController < ApplicationController
     @lessons = @lessons.where(neighborhood: params[:loc]) if !params[:loc].blank?
     @lessons = @lessons.where(category: params[:cat]) if !params[:cat].blank?
     # @lessons = @lessons.where(start_date_time: params[:date]) if params[:date]
+    @hash = Gmaps4rails.build_markers(@lessons) do |lesson, marker|
+      marker.lat lesson.latitude
+      marker.lng lesson.longitude
+          # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def show

@@ -1,0 +1,20 @@
+.banner-lessons {
+  background-image: asset-url('yoga-banner.jpg');
+  background-size: cover !important;
+  opacity: 0.7;
+  background-position: center;
+  height: 250px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.banner-lessons-content {
+  h1
+  {
+  margin-top: 0;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  }
+}
