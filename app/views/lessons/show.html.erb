@@ -17,7 +17,7 @@
               <%  if @lesson.user.facebook_picture_url? %>
               <%= image_tag @lesson.user.facebook_picture_url, :class => "user-img-circle"%>
               <% else %>
-              <%= image_tag "nopic.png", class: "coach-img"%>
+              <%= image_tag "avatar.png", class: "coach-img"%>
               <% end %>
               <p><%= @lesson.user.first_name %></p>
             </div>
