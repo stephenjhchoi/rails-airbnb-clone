@@ -1,5 +1,5 @@
-
-<div class="banner-lessons" style="background-image: url(<%= image_path(@lesson.category.capitalize + '.jpg') %>);">
+<% img_url = @lesson.category.capitalize + '.jpg' %>
+<div class="banner-lessons" style="background-image: url(<%= image_url img_url %>);">
 
   <div class="banner-lessons-content">
     <h1><%= @lesson.category %></h1>
