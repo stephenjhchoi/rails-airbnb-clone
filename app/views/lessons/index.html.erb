@@ -1,6 +1,8 @@
 
 <div class="container full-screen">
   <div class="row">
+  <div class="col-md-10 col-md-offset-1">
+
     <div class="coach-cards-container">
 
       <% @lessons.each do |lesson| %>
@@ -46,27 +48,28 @@
 
 
     </div>
+    </div>
   </div>
 </div>
 
 <div id="map" style="width: 100%; height: 600px;"></div>
 
 <% content_for(:after_js) do %>
-  <script>
-    $(document).ready(function() {
-      var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
-        markers = handler.addMarkers(<%= raw @hash.to_json %>);
-        handler.bounds.extendWith(markers);
-        handler.fitMapToBounds();
-        if (markers.length == 0) {
-          handler.getMap().setZoom(2);
-        } else if (markers.length == 1) {
-          handler.getMap().setZoom(14);
-        }
-      });
+<script>
+  $(document).ready(function() {
+    var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: { id: 'map' } }, function() {
+      markers = handler.addMarkers(<%= raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+      if (markers.length == 0) {
+        handler.getMap().setZoom(2);
+      } else if (markers.length == 1) {
+        handler.getMap().setZoom(14);
+      }
     });
-  </script>
+  });
+</script>
 <% end %>
 
 
