@@ -43,7 +43,7 @@
             <li>£<%= @lesson.price %></li>
             <li><%= @lesson.start_date_time %></li>
             <li><%= @lesson.duration %>mins</li>
-            <li><%= @lesson.booking.location %></li>
+            <li><%# @lesson.booking.location %></li>
           </ul>
           <%= f.submit "Book it", class: "btn btn-primary", style: "width: 100%" %>
           <% end %>

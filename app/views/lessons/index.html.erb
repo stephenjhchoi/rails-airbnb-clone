@@ -4,7 +4,7 @@
     <div class="coach-cards-container">
 
       <% @lessons.each do |lesson| %>
-
+        <% if current_user.id != lesson.user_id %>
       <div class="coach-card">
         <div class="coach-card-image" style="background-image: url(<%= image_path(lesson.category + '.jpg') %>);">
           <%= image_tag lesson.user.facebook_picture_url, :class => "avatar_card"%>
@@ -42,6 +42,7 @@
 
         <%= link_to "this", lesson_path(lesson), class: "coach-card-link" %>
       </div>
+      <% end %>
       <% end %>
 
 
