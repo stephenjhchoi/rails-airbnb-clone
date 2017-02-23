@@ -10,6 +10,7 @@
 
         <% img_url = "#{lesson.category.downcase}.png" %>
         <div class="coach-card-image" style="background-image: url(<%= image_url img_url %>);">
+
           <%= image_tag lesson.user.facebook_picture_url, :class => "avatar_card"%>
         </div>
         <div class="coach-card-info">
