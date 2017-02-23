@@ -2,10 +2,14 @@
   <div class="row">
     <div class="coach-cards-container col-md-8">
       <% @lessons.each do |lesson| %>
-        <div class="coach-card">
-          <div class="coach-card-image" style="background-image: url(<%= image_path(lesson.category + '.jpg') %>);">
-        <%= image_tag lesson.user.facebook_picture_url, :class => "avatar_card"%>
-          </div>
+
+      <div class="coach-card">
+        <% img_url = "#{lesson.category.downcase}.png" %>
+        <div class="coach-card-image" style="background-image: url(<%= image_url img_url %>);">
+
+          <%= image_tag lesson.user.facebook_picture_url, :class => "avatar_card"%>
+        </div>
+        
         <div class="coach-card-info">
           <p class="color-incard"><strong><%= lesson.category %></strong></p>
 

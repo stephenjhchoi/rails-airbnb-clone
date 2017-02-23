@@ -1,7 +1,8 @@
 class Lesson < ApplicationRecord
   belongs_to :user
-  has_one :booking
+  has_one :booking, dependent: :destroy
   CATEGORIES = ["Yoga", "Cardio", "Pilates", "Weights", "Boxing", "Tennis"]
+
   NEIGHBORHOOD = ["Chelsea", "Shoreditch", "Knightsbridge", "Mayfair", "Marylebone", "Hampstead"]
   validates :category, presence: true
   validates :price, presence: true
