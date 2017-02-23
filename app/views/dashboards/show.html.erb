@@ -17,6 +17,15 @@
     <% current_user.bookings.each do |booking|%>
       <div class="row"><div class="card">
 
+              <div class="card-date">
+                <h4><%= booking.lesson.start_date_time %></h4>
+                <h5><%= booking.status %></h5>
+              </div>
+
+              <div class="card-categoty" style="background-image: url();">
+                <h3><%= booking.lesson.category %></h3>
+              </div>
+
               <div class="card-lesson-avatar col-xs-4">
                 <h3>Trainer</h3>
                 <% if booking.lesson.user.photo? %>
@@ -30,12 +39,8 @@
               </div>
 
               <div class="card-description col-xs-offset-6 col-xs-4">
-                <h4><%= booking.lesson.start_date_time %></h4>
-                <h4><%= booking.lesson.duration %></h4>
-                <h3><%= booking.lesson.category %></h3>
-                <h5><%= booking.lesson.price %></h5>
+                <h4><%= booking.lesson.price %>/<%= booking.lesson.duration %>min</h4>
                 <p><%= booking.location %></p>
-                <h5><%= booking.status %></h5>
               </div>
               <%= link_to "", lesson_path(booking.lesson), class: "card-link" %>
             </div></div>
