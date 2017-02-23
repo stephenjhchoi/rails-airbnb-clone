@@ -42,8 +42,9 @@
     <div class="row">
       <div class="col-xs-12 col-sm-4">
         <!-- insert <div class="card"> -->
-        <%= link_to '/lessons?date=&neighborhood=&category=Yoga' do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path “yoga.png” %>);">
+        <% yoga_url = "yoga.png" %>
+        <%= link_to lessons_path({category: "Yoga"}) do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path yoga_url %>);">
           <div class="card-description">
             <h2>YOGA</h2>
           </div>
@@ -52,8 +53,9 @@
       </div>
       <div class="col-xs-12 col-sm-4">
         <!-- insert <div class="card"> -->
-        <%= link_to 'lessons?date=&neighborhood=&category=Cardio' do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path “cardio.png” %>);">
+        <% cardio_url = "cardio.png" %>
+        <%= link_to lessons_path({category: "Cardio"}) do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path cardio_url %>);">
           <div class="card-description">
             <h2>CARDIO</h2>
           </div>
@@ -62,8 +64,9 @@
       </div>
       <div class="col-xs-12 col-sm-4">
         <!-- insert <div class="card"> -->
-        <%= link_to 'lessons?date=&neighborhood=&category=Pilates' do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path “pilates.png” %>);">
+        <% pilates_url = "pilates.png" %>
+        <%= link_to lessons_path({category: "Pilates"}) do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path pilates_url %>);">
           <div class="card-description">
             <h2>PILATES</h2>
           </div>
@@ -78,8 +81,9 @@
     <div class="row">
       <div class="col-xs-12 col-sm-4">
         <!-- insert <div class="card"> -->
-        <%= link_to 'lessons?date=&neighborhood=&category=Weights' do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path “weights.png” %>);">
+        <% weights_url = "weights.png" %>
+        <%= link_to lessons_path({category: "Weights"}) do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path weights_url %>);">
           <div class="card-description">
             <h2>WEIGHT LIFTING</h2>
           </div>
@@ -88,8 +92,9 @@
       </div>
       <div class="col-xs-12 col-sm-4">
         <!-- insert <div class="card"> -->
-        <%= link_to 'lessons?date=&neighborhood=&category=Boxing' do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path “boxing.png” %>);">
+        <% boxing_url = "boxing.png" %>
+        <%= link_to lessons_path({category: "Boxing"}) do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path boxing_url %>);">
           <div class="card-description">
             <h2>BOXING</h2>
           </div>
@@ -98,8 +103,9 @@
       </div>
       <div class="col-xs-12 col-sm-4">
         <!-- insert <div class="card"> -->
-        <%= link_to 'lessons?date=&neighborhood=&category=Tennis' do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path “tennis.png” %>);">
+        <% tennis_url = "tennis.png" %>
+        <%= link_to lessons_path({category: "Tennis"}) do %>
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path tennis_url %>);">
           <div class="card-description">
             <h2>TENNIS</h2>
           </div>
