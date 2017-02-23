@@ -1,7 +1,7 @@
 class Lesson < ApplicationRecord
   belongs_to :user
   has_one :booking
-  CATEGORIES = ["Yoga", "Cardio", "Pilates", "Weight Lifting", "Boxing", "Tennis"]
+  CATEGORIES = ["Yoga", "Cardio", "Pilates", "Weights", "Boxing", "Tennis"]
   NEIGHBORHOOD = ["Chelsea", "Shoreditch", "Knightsbridge", "Mayfair", "Marylebone", "Hampstead"]
   validates :category, presence: true
   validates :price, presence: true
@@ -10,6 +10,11 @@ class Lesson < ApplicationRecord
   validates :description, presence: true
   validates :neighborhood, presence: true
 
-  geocoded_by :neighborhood
+  geocoded_by :neighborhood_in_london
   after_validation :geocode, if: :neighborhood_changed?
+
+  private
+  def neighborhood_in_london
+    self.neighborhood + ', London, UK'
+  end
 end
