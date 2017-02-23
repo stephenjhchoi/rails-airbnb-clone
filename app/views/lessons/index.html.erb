@@ -8,7 +8,7 @@
       <% @lessons.each do |lesson| %>
       <div class="coach-card">
 
-      <% img_url = lesson.category + '.jpg' %>
+      <% img_url = "#{@lesson.category.downcase}.png" %>
         <div class="coach-card-image" style="background-image: url(<%= image_url img_url %>);">
           <%= image_tag lesson.user.facebook_picture_url, :class => "avatar_card"%>
         </div>
