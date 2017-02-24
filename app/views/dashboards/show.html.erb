@@ -1,84 +1,42 @@
-<div class="container text-center" style="margin-top: 30px;">
-  <h1>My Dashboard</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <h2>My Dashboard</h2>
 
-  <% if current_user.photo? %>
-    <%= image_tag current_user.photo, class: "user-pic", style: "height: 300px;" %>
-  <% elsif current_user.facebook_picture_url?%>
-    <%= image_tag current_user.facebook_picture_url, class: "user-pic", style: "height: 300px;" %>
-  <% else %>
-    <%= image_tag "http://placehold.it/30x30",  class: "user-pic" %>
-  <% end %>
-
-  <h3><%= current_user.first_name %> <%= current_user.last_name %></h3>
-
-  <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
-  <%= link_to "create a new lesson", new_lesson_path, class: "btn btn-primary" %>
-
-  <h1>Lessons for student</h1>
-  <div class="dashboard">
-
-    <% current_user.bookings.each do |booking|%>
-<div class="coach-card">
-        <div class="coach-card-image" style="background-image: url('<%= booking.lesson.user.facebook_picture_url %>');">
-        </div>
-        <div class="coach-card-info">
-          <p><strong><%= booking.lesson.category %></strong></p>
-          <p><strong>£<%= booking.lesson.price %></strong></p>
-          <p><strong><%= booking.lesson.description %></strong></p>
-          <p><strong><%= booking.lesson.neighborhood %></strong></p>
-          <p><strong><%= booking.lesson.start_date_time.strftime("%b %e, %l:%M %p") %></strong></p>
-        </div>
-        <div class="coach-card-title">
-
-
-            <h4><%= booking.lesson.user.first_name%> <%= booking.lesson.user.last_name%></h4>
-
+    </div>
+    <div class="col-md-10">
+      <div class="">
+      <!-- all bookibgs -->
+        <div class="dashboard">
+          <!-- My bookibg section -->
+          <h2>My bookings</h2>
+          <div class="row">
+            <!-- Loop on booking -->
+            <% current_user.bookings.each do |booking|%>
+              <div class="col-md-4">
+                <%= render "dashboard-card-user", booking: booking %>
+              </div>
+            <% end %>
           </div>
-            <div class="coach-card-date">
-              <p><%= booking.lesson.neighborhood %>, <%= booking.lesson.price %></p>
-            </div>
-          <%= link_to "", lesson_path(booking.lesson), class: "card-link" %>
-      </div>
-
-      <% end %>
-  </div>
-</div>
-
-
-
-
- <!--  <div class="coach_lesson">
-    <h1>Lessons for coach</h1>
-    <% current_user.lessons.each do |lesson|%>
-      <div class="row"><div class="card">
-
-              <div class="card-lesson-avatar">
-                <h3>Student</h3>
-                <% if lesson.booking.user.photo? %>
-                  <%= image_tag lesson.booking.user.photo, class: "user-pic" %>
-                <% elsif lesson.booking.user.facebook_picture_url?%>
-                  <%= image_tag lesson.booking.user.facebook_picture_url, class: "user-pic" %>
+        </div>
+        <div class="dashboard">
+          <!-- My request section -->
+          <h2>My Request</h2>
+          <div class="row">
+            <!-- Loop on Request -->
+            <% current_user.lessons.each do |lesson| %>
+              <div class="col-md-4">
+                <% if lesson.booking.status == 'pending' %>
+                  <%= render "dashboard-card-coach", lesson: lesson %>
                 <% else %>
-                  <%= image_tag "http://placehold.it/30x30",  class: "user-pic" %>
+                  <%= render "dashboard-card-coach", lesson: lesson %>
                 <% end %>
-                <h3><%= lesson.booking.user.first_name %></h3>
               </div>
+            <% end %>
+          </div>
+        </div>
 
-              <div class="card-description">
-                <h4><%= lesson.start_date_time %></h4>
-                <h4><%= lesson.duration %></h4>
-                <h3><%= lesson.category %></h3>
-                <h5><%= lesson.price %></h5>
-                <p><%= lesson.booking.location %></p>
-              </div>
-
-              <div class="lesson-status">
-                <h5><%= lesson.booking.status %></h5>
-              </div>
-              <%= link_to "", lesson_path(lesson), class: "card-link" %>
-            </div></div>
-    <% end %>
-  </div> -->
-</div>
-
+      </div>
+    </div>
+  </div>
 </div>

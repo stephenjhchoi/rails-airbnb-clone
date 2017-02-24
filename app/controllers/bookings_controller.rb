@@ -25,12 +25,15 @@ class BookingsController < ApplicationController
   # def edit
   # end
 
-  # def update
-  #   if @user.update(booking_params)
-  #     redirect_to bookings_path
-  #   else
-  #     render :edit
-  # end
+  def update
+    if params[:status] == 'accepted'
+      booking.
+    # if @user.update(booking_params)
+    #   redirect_to bookings_path
+    # else
+    #   render :edit
+    # end
+  end
 
   # def destroy
   #   @user.destroy
