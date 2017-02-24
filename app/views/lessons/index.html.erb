@@ -1,82 +1,70 @@
-
-<div class="container full-screen">
+<div class="container-fluid">
   <div class="row">
-  <div class="col-md-10 col-md-offset-1">
-
-    <div class="coach-cards-container">
-
+    <div class="coach-cards-container col-md-8">
       <% @lessons.each do |lesson| %>
-        <% if current_user.id != lesson.user_id %>
+
       <div class="coach-card">
-        <div class="coach-card-image" style="background-image: url(<%= image_path(lesson.category + '.jpg') %>);">
+        <% img_url = "#{lesson.category.downcase}.png" %>
+        <div class="coach-card-image" style="background-image: url(<%= image_url img_url %>);">
+
           <%= image_tag lesson.user.facebook_picture_url, :class => "avatar_card"%>
         </div>
+        
         <div class="coach-card-info">
           <p class="color-incard"><strong><%= lesson.category %></strong></p>
 
           <p class="color-incard"><strong>£<%= lesson.price %></strong></p>
+          <p><strong><%= lesson.duration %> min</strong></p>
           <p><strong><%= lesson.neighborhood %></strong></p>
           <p><strong><%= lesson.start_date_time.strftime("%b %e, %l:%M %p") %></strong></p>
           <br>
-          <p><strong><p class="desc_under">Description: <%= lesson.description %></p></strong></p>
+          <p><strong><span class="desc_under">Description:</span></strong> <%= truncate(lesson.description, length: 60) %></p>
         </div>
-        <div class="coach-card-title">
-
-
-          <h4><%= lesson.user.first_name%> <%= lesson.user.last_name%></h4>
-
-        </div>
-        <div class="coach-card-date">
-          <p><%= lesson.start_date_time.strftime("%b %e, %l:%M %p")  %></p>
-        </div>
-
-        <div class="coach-card-neigh">
-          <p><%= lesson.neighborhood %></p>
-        </div>
-
-        <div class="coach-card-price">
-          <p>- £ <%= lesson.price %></p>
-        </div>
-
-        <div class="coach-card-cat">
-          <p><%= lesson.category.upcase %></p>
-        </div>
-
+      <div class="coach-card-title">
+        <h4><%= lesson.user.first_name%> <%= lesson.user.last_name%></h4>
+      </div>
+      <div class="coach-card-date">
+        <p><%= lesson.start_date_time.strftime("%b %e, %l:%M %p")  %></p>
+      </div>
+      <div class="coach-card-neigh">
+        <p><%= lesson.neighborhood %></p>
+      </div>
+      <div class="coach-card-price">
+        <p>- £ <%= lesson.price %></p>
+      </div>
+      <div class="coach-card-cat">
+        <p><%= lesson.category.upcase %></p>
+      </div>
         <%= link_to "this", lesson_path(lesson), class: "coach-card-link" %>
       </div>
       <% end %>
-      <% end %>
-
-
     </div>
+
+
+    <div class="col-md-4">
+
+      <div id="map" style="width: 100%; height: 100vh;"></div>
+
+      <% content_for(:after_js) do %>
+      <script>
+        $(document).ready(function() {
+          var handler = Gmaps.build('Google');
+          handler.buildMap({ internal: { id: 'map' } }, function() {
+            markers = handler.addMarkers(<%= raw @hash.to_json %>);
+            handler.bounds.extendWith(markers);
+            handler.fitMapToBounds();
+            if (markers.length == 0) {
+              handler.getMap().setZoom(2);
+            } else if (markers.length == 1) {
+              handler.getMap().setZoom(14);
+            }
+          });
+        });
+      </script>
+      <% end %>
     </div>
   </div>
 </div>
-
-<div id="map" style="width: 100%; height: 600px;"></div>
-
-<% content_for(:after_js) do %>
-<script>
-  $(document).ready(function() {
-    var handler = Gmaps.build('Google');
-    handler.buildMap({ internal: { id: 'map' } }, function() {
-      markers = handler.addMarkers(<%= raw @hash.to_json %>);
-      handler.bounds.extendWith(markers);
-      handler.fitMapToBounds();
-      if (markers.length == 0) {
-        handler.getMap().setZoom(2);
-      } else if (markers.length == 1) {
-        handler.getMap().setZoom(14);
-      }
-    });
-  });
-</script>
-<% end %>
-
-
-
-
-
 
 
 

@@ -1,5 +1,6 @@
+<% img_url = "#{@lesson.category.downcase}.png" %>
 
-<div class="banner-lessons" style="background-image: url(<%= image_path(@lesson.category.capitalize + '.jpg') %>);">
+<div class="banner-lessons" style="background-image: url(<%= image_path img_url %>);">
 
   <div class="banner-lessons-content">
     <h1><%= @lesson.category %></h1>
@@ -12,11 +13,12 @@
       <div class="col-xs-12 col-sm-6 col-sm-offset-1">
         <div class="trainer-details">
 
+
             <div class="coach-info text-center">
               <%  if @lesson.user.facebook_picture_url? %>
               <%= image_tag @lesson.user.facebook_picture_url, :class => "user-img-circle"%>
               <% else %>
-              <%= image_tag "nopic.png", class: "coach-img"%>
+              <%= image_tag "avatar.png", class: "coach-img"%>
               <% end %>
               <p><%= @lesson.user.first_name %></p>
             </div>
