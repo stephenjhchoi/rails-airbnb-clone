@@ -16,7 +16,7 @@
 
             <div class="coach-info text-center">
               <%  if @lesson.user.facebook_picture_url? %>
-              <%= image_tag @lesson.user.facebook_picture_url, :class => "user-img-circle"%>
+              <%= image_tag @lesson.user.facebook_picture_url, class: "user-img-circle"%>
               <% else %>
               <%= image_tag "avatar.png", class: "coach-img"%>
               <% end %>
@@ -24,7 +24,7 @@
             </div>
 
             <div class="coach-about">
-              <h1><%= @lesson.description %></h1>
+              <h1 class="justify_text"><%= @lesson.description %></h1>
               <p><%= @lesson.neighborhood %></p>
               <p><%= @lesson.user.bio %></p>
               <i class="fa fa-star" style="color: #ffb400"></i>
@@ -40,24 +40,24 @@
         <div class="book-lesson col-xs-12 col-sm-4">
           <% if current_user != @lesson.user %>
             <%= simple_form_for [@lesson, @booking] do |f| %>
-            <h4>Book this lesson</h4>
-            <ul>
-              <li><%= @lesson.category %></li>
-              <li>£<%= @lesson.price %></li>
-              <li><%= @lesson.start_date_time %></li>
-              <li><%= @lesson.duration %>mins</li>
-              <li><%# @lesson.booking.location %></li>
-            </ul>
-              <%= f.submit "Book it", class: "btn btn-primary", style: "width: 100%" %>
-            <% end %>
+          <h4 class="desc_under"><strong>Book this lesson</strong></h4>
+          <ul>
+            <li><%= @lesson.category %></li>
+            <li>£<%= @lesson.price %></li>
+            <li><%= @lesson.start_date_time.strftime("%b %e, %l:%M %p") %></li>
+            <li><%= @lesson.duration %> </li>
+            <li><%= @lesson.neighborhood %></li>
+          </ul>
+          <%= f.submit "Book it", class: "btn btn-primary", style: "width: 100%" %>
           <% else %>
             <%= simple_form_for @lesson do |f| %>
             <h4>Edit this lesson</h4>
             <ul>
               <li><%= @lesson.category %></li>
               <li>£<%= @lesson.price %></li>
-              <li><%= @lesson.start_date_time %></li>
-              <li><%= @lesson.duration %>mins</li>
+              <li><%= @lesson.start_date_time.strftime("%b %e, %l:%M %p") %></li>
+              <li><%= @lesson.duration %> </li>
+              <li><%= @lesson.neighborhood %></li>
             </ul>
               <%= link_to "Edit", edit_lesson_path(@lesson), class: "btn btn-primary", style: "width: 100%" %>
             <% end %>
@@ -68,7 +68,10 @@
   </div>
 </div>
 
-<div id="map" style="width: 100%; height: 600px;"></div>
+<div id="map" style="width: 100%; height: 600px;">
+
+<%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=400x300&sensor=false&maptype=roadmap&markers=color:red|#{@lesson.neighborhood}" %>
+</div>
 
 <% content_for(:after_js) do %>
 <script>

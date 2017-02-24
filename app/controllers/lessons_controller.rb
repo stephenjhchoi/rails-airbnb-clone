@@ -16,6 +16,11 @@ class LessonsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @hash = Gmaps4rails.build_markers(@lesson) do |lesson, marker|
+      marker.lat lesson.latitude
+      marker.lng lesson.longitude
+          # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def new
