@@ -37,6 +37,8 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 gem 'geocoder'
+gem 'carrierwave', '~> 0.11.2'
+
 
 gem "coffee-rails"
 gem "gmaps4rails"

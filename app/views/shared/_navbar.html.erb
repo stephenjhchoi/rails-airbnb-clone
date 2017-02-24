@@ -13,7 +13,7 @@
 
     <!-- Different navigation if login or not -->
     <% if user_signed_in? %>
-    <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+    <% avatar_url = current_user.facebook_picture_url || current_user.photo %>
 
       <!-- Notification -->
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
@@ -25,7 +25,7 @@
       <!-- Profile picture and dropdown -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to dashboard_path do %>
