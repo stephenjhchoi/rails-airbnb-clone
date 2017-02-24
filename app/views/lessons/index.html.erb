@@ -23,7 +23,7 @@
           <p><strong><span class="desc_under">Description:</span></strong> <%= truncate(lesson.description, length: 60) %></p>
         </div>
         <div class="coach-card-title">
-          <h4><%= lesson.user.first_name%> <%= lesson.user.last_name%></h4>
+          <h4><%= lesson.user.first_name%> <%= lesson.user.last_name[0]%></h4>
         </div>
         <div class="coach-card-date">
           <p><%= lesson.start_date_time.strftime("%b %e, %l:%M %p")  %></p>
