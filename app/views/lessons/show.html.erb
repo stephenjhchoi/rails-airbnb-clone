@@ -16,7 +16,7 @@
 
             <div class="coach-info text-center">
               <%  if @lesson.user.facebook_picture_url? %>
-              <%= image_tag @lesson.user.facebook_picture_url, :class => "user-img-circle"%>
+              <%= image_tag @lesson.user.facebook_picture_url, class: "user-img-circle"%>
               <% else %>
               <%= image_tag "avatar.png", class: "coach-img"%>
               <% end %>
