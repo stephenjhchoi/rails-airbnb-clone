@@ -8,8 +8,11 @@
       <div class="coach-card">
         <% img_url = "#{lesson.category.downcase}.png" %>
         <div class="coach-card-image" style="background-image: url(<%= image_url img_url %>);">
-
-          <%= image_tag lesson.user.facebook_picture_url, :class => "avatar_card"%>
+          <% if lesson.user.facebook_picture_url %>
+          <%= image_tag lesson.user.facebook_picture_url, :class => "avatar_card" %>
+          <% else %>
+          <%= image_tag 'avatar.png', :class => "avatar_card" %>
+          <% end %>
         </div>
 
         <div class="coach-card-info">
@@ -19,8 +22,7 @@
           <p><strong><%= lesson.duration %> min</strong></p>
           <p><strong><%= lesson.neighborhood %></strong></p>
           <p><strong><%= lesson.start_date_time.strftime("%b %e, %l:%M %p") %></strong></p>
-          <br>
-          <p><strong><span class="desc_under">Description:</span></strong> <%= truncate(lesson.description, length: 60) %></p>
+          <p><strong><span class="desc_under">Description:</span></strong> <%= truncate(lesson.description, length: 50) %></p>
         </div>
         <div class="coach-card-title">
           <h4><%= lesson.user.first_name%> <%= lesson.user.last_name[0]%></h4>
