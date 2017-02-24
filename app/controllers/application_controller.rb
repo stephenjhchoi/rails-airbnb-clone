@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_filter :store_location
+  helper_method :booking_count
 
   def configure_permitted_parameters
     # For additional fields in app/views/devise/registrations/new.html.erb
@@ -22,4 +23,12 @@ class ApplicationController < ActionController::Base
   end
 
 
+  def booking_count
+    @lessons = current_user.lessons
+    counter = 0
+    @lessons.each do |lesson|
+    counter += 1 if lesson.booking
+    end
+    return counter
+  end
 end
