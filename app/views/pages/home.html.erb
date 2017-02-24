@@ -44,7 +44,7 @@
         <!-- insert <div class="card"> -->
         <% yoga_url = "yoga.png" %>
         <%= link_to lessons_path({category: "Yoga"}) do %>
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path yoga_url %>);">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path yoga_url %>); background-position: bottom;">
           <div class="card-description">
             <h2>YOGA</h2>
           </div>
