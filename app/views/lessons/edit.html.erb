@@ -15,11 +15,10 @@
         <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
 
-        <%= link_to "Delete lesson", lesson_path(@lesson), method: :delete %>
-        <button class="back-btn"><%= link_to 'Back', root_path %></button>
+        <%= link_to "Delete lesson", lesson_path(@lesson), method: :delete %> |
+        <%= link_to "Back Home", root_path %>
 
       </div>
     </div>
   </div>
 </div>
-
