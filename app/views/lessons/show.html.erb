@@ -38,7 +38,8 @@
       </div>
 
         <div class="book-lesson col-xs-12 col-sm-4">
-          <%= simple_form_for [@lesson, @booking] do |f| %>
+          <% if current_user != @lesson.user %>
+            <%= simple_form_for [@lesson, @booking] do |f| %>
           <h4 class="desc_under"><strong>Book this lesson</strong></h4>
           <ul>
             <li><%= @lesson.category %></li>
@@ -48,6 +49,18 @@
             <li><%= @lesson.neighborhood %></li>
           </ul>
           <%= f.submit "Book it", class: "btn btn-primary", style: "width: 100%" %>
+          <% else %>
+            <%= simple_form_for @lesson do |f| %>
+            <h4>Edit this lesson</h4>
+            <ul>
+              <li><%= @lesson.category %></li>
+              <li>£<%= @lesson.price %></li>
+              <li><%= @lesson.start_date_time.strftime("%b %e, %l:%M %p") %></li>
+              <li><%= @lesson.duration %> </li>
+              <li><%= @lesson.neighborhood %></li>
+            </ul>
+              <%= link_to "Edit", edit_lesson_path(@lesson), class: "btn btn-primary", style: "width: 100%" %>
+            <% end %>
           <% end %>
         </div>
 
