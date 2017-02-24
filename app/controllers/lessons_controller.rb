@@ -1,10 +1,8 @@
 class LessonsController < ApplicationController
-  before_action :set_lesson, only: :show
-  #before_action :set_lessons, only: [:show, :edit, :update, :destroy]
+  before_action :set_lesson, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_user!, only: [:index,:show]
 
   def index
-
     @lessons = Lesson.all
     @lessons = @lessons.where(neighborhood: params[:neighborhood]) if !params[:neighborhood].blank?
     @lessons = @lessons.where(category: params[:category]) if !params[:category].blank?
@@ -32,21 +30,21 @@ class LessonsController < ApplicationController
     end
   end
 
-  # def edit
-  # end
+  def edit
+  end
 
-  # def update
-  #   if @lesson.update(lesson_params)
-  #     redirect_to lessons_path
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def update
+    if @lesson.update(lesson_params)
+      redirect_to lessons_path
+    else
+      render :edit
+    end
+  end
 
-  # def destroy
-  #   @lesson.destroy
-  #   redirect_to lessons_path
-  # end
+  def destroy
+    @lesson.destroy
+    redirect_to lessons_path
+  end
 
   private
 
