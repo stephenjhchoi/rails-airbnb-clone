@@ -16,7 +16,7 @@
     <% avatar_url = current_user.facebook_picture_url || current_user.photo %>
 
       <!-- Notification -->
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link" do %>
+      <%= link_to dashboard_path, class: "navbar-wagon-item navbar-wagon-link" do %>
         <div class="badge-container">
           <i class="fa fa-envelope-o"></i>
           <div class="badge badge-blue"><%= booking_count %></div>
