@@ -11,7 +11,7 @@
           <% if lesson.user.facebook_picture_url %>
           <%= image_tag lesson.user.facebook_picture_url, :class => "avatar_card" %>
           <% else %>
-          <%= image_tag 'avatar.png', :class => "avatar_card" %>
+          <%= image_tag lesson.user.photo, :class => "avatar_card" %>
           <% end %>
         </div>
 

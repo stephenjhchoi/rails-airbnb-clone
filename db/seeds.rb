@@ -8,11 +8,11 @@
 User.destroy_all
 Lesson.destroy_all
 
-user = User.create!(id: "1", first_name: 'Allison', last_name: 'Grekin', email: 'allison_grekin@hotmail.com', password:'123456', password_confirmation: '123456', photo: 'allison.jpeg')
-user2 = User.create!(id: "2", first_name: 'Stephen', last_name: 'Choi', email: 'stephen.choi@msn.com', password:'123456', password_confirmation: '123456', photo: 'stephen.jpeg' )
-user3 = User.create!(id: "3", first_name: 'Archie', last_name: 'San', email: 'archie.hero@msn.com', password:'123456', password_confirmation: '123456', photo: 'archie.jpg' )
-user4 = User.create!(id: "4", first_name: 'Evan', last_name: 'San', email: 'evan.san@msn.com', password:'123456', password_confirmation: '123456', photo: 'evan.png' )
-user5 = User.create!(id: "5", first_name: 'Remi', last_name: 'San', email: 'remi.san@msn.com', password:'123456', password_confirmation: '123456', photo: 'remi.jpg' )
+user = User.create!(id: "1", first_name: 'Allison', last_name: 'Grekin', email: 'allison_grekin@hotmail.com', password:'123456', password_confirmation: '123456', photo: File.open(Rails.root.join('app/assets/images/allison.jpg')))
+user2 = User.create!(id: "2", first_name: 'Stephen', last_name: 'Choi', email: 'stephen.choi@msn.com', password:'123456', password_confirmation: '123456', photo: File.open(Rails.root.join('app/assets/images/stephen.jpeg')))
+user3 = User.create!(id: "3", first_name: 'Archie', last_name: 'San', email: 'archie.hero@msn.com', password:'123456', password_confirmation: '123456', photo: File.open(Rails.root.join('app/assets/images/archie.jpg')))
+user4 = User.create!(id: "4", first_name: 'Evan', last_name: 'San', email: 'evan.san@msn.com', password:'123456', password_confirmation: '123456', photo: File.open(Rails.root.join('app/assets/images/evan.png')))
+user5 = User.create!(id: "5", first_name: 'Remi', last_name: 'San', email: 'remi.san@msn.com', password:'123456', password_confirmation: '123456', photo: File.open(Rails.root.join('app/assets/images/remi.jpg')))
 
 d = DateTime.new(2017, 3 , 30, 5, 40, 46, "-06:00")
 lesson = Lesson.create!(user_id: "1", category: "Cardio", price: "30", start_date_time: d.strftime, duration: "30min", neighborhood:"Chelsea", description: "Cardio exercise is any exercise that raises your heart rate. Face it our bodies were made to move. And we all know that to keep our muscles in shape we need move them.")
