@@ -38,16 +38,20 @@
       </div>
 
         <div class="book-lesson col-xs-12 col-sm-4">
-          <%= simple_form_for [@lesson, @booking] do |f| %>
-          <h4>Book this lesson</h4>
-          <ul>
-            <li><%= @lesson.category %></li>
-            <li>£<%= @lesson.price %></li>
-            <li><%= @lesson.start_date_time %></li>
-            <li><%= @lesson.duration %>mins</li>
-            <li><%# @lesson.booking.location %></li>
-          </ul>
-          <%= f.submit "Book it", class: "btn btn-primary", style: "width: 100%" %>
+          <% if current_user != @lesson.user %>
+            <%= simple_form_for [@lesson, @booking] do |f| %>
+            <h4>Book this lesson</h4>
+            <ul>
+              <li><%= @lesson.category %></li>
+              <li>£<%= @lesson.price %></li>
+              <li><%= @lesson.start_date_time %></li>
+              <li><%= @lesson.duration %>mins</li>
+              <li><%# @lesson.booking.location %></li>
+            </ul>
+              <%= f.submit "Book it", class: "btn btn-primary", style: "width: 100%" %>
+            <% end %>
+          <% else %>
+            <p>Edit te</p>
           <% end %>
         </div>
 

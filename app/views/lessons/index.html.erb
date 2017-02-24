@@ -1,6 +1,8 @@
 <div class="container-fluid">
   <div class="row">
     <div class="coach-cards-container col-md-8">
+
+    <% unless @lessons.blank? %>
       <% @lessons.each do |lesson| %>
 
       <div class="coach-card">
@@ -9,7 +11,7 @@
 
           <%= image_tag lesson.user.facebook_picture_url, :class => "avatar_card"%>
         </div>
-        
+
         <div class="coach-card-info">
           <p class="color-incard"><strong><%= lesson.category %></strong></p>
 
@@ -20,24 +22,39 @@
           <br>
           <p><strong><span class="desc_under">Description:</span></strong> <%= truncate(lesson.description, length: 60) %></p>
         </div>
-      <div class="coach-card-title">
-        <h4><%= lesson.user.first_name%> <%= lesson.user.last_name%></h4>
-      </div>
-      <div class="coach-card-date">
-        <p><%= lesson.start_date_time.strftime("%b %e, %l:%M %p")  %></p>
-      </div>
-      <div class="coach-card-neigh">
-        <p><%= lesson.neighborhood %></p>
-      </div>
-      <div class="coach-card-price">
-        <p>- £ <%= lesson.price %></p>
-      </div>
-      <div class="coach-card-cat">
-        <p><%= lesson.category.upcase %></p>
-      </div>
-        <%= link_to "this", lesson_path(lesson), class: "coach-card-link" %>
-      </div>
+
+        <div class="coach-card-title">
+          <h4><%= lesson.user.first_name%> <%= lesson.user.last_name%></h4>
+        </div>
+        <div class="coach-card-date">
+          <p><%= lesson.start_date_time.strftime("%b %e, %l:%M %p")  %></p>
+        </div>
+        <div class="coach-card-neigh">
+          <p><%= lesson.neighborhood %></p>
+        </div>
+        <div class="coach-card-price">
+          <p>- £ <%= lesson.price %></p>
+        </div>
+        <div class="coach-card-cat">
+          <p><%= lesson.category.upcase %></p>
+        </div>
+          <%= link_to "this", lesson_path(lesson), class: "coach-card-link" %>
+        </div>
       <% end %>
+
+      <% else %>
+        <div class="container text-center", style="padding-top: 50px;">
+          <div class="row">
+            <div class="col-xs-12">
+              <h4>No classes available.</h4>
+              <h4>Wanna choose another category? <i class="fa fa-smile-o" aria-hidden="true"></i></h4>
+              <div class="bt-back-home"><%= link_to "Go back Home", root_path %></div>
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+
     </div>
 
 
