@@ -22,7 +22,6 @@
           <br>
           <p><strong><span class="desc_under">Description:</span></strong> <%= truncate(lesson.description, length: 60) %></p>
         </div>
-
         <div class="coach-card-title">
           <h4><%= lesson.user.first_name%> <%= lesson.user.last_name%></h4>
         </div>
@@ -38,8 +37,9 @@
         <div class="coach-card-cat">
           <p><%= lesson.category.upcase %></p>
         </div>
-          <%= link_to "this", lesson_path(lesson), class: "coach-card-link" %>
+          <%= link_to "", lesson_path(lesson), class: "coach-card-link" %>
         </div>
+
       <% end %>
 
       <% else %>
