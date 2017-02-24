@@ -24,7 +24,7 @@
             </div>
 
             <div class="coach-about">
-              <h1><%= @lesson.description %></h1>
+              <h1 class="justify_text"><%= @lesson.description %></h1>
               <p><%= @lesson.neighborhood %></p>
               <p><%= @lesson.user.bio %></p>
               <i class="fa fa-star" style="color: #ffb400"></i>
@@ -39,12 +39,12 @@
 
         <div class="book-lesson col-xs-12 col-sm-4">
           <%= simple_form_for [@lesson, @booking] do |f| %>
-          <h4><strong>Book this lesson</strong></h4>
+          <h4 class="desc_under"><strong>Book this lesson</strong></h4>
           <ul>
             <li><%= @lesson.category %></li>
             <li>£<%= @lesson.price %></li>
             <li><%= @lesson.start_date_time.strftime("%b %e, %l:%M %p") %></li>
-            <li><%= @lesson.duration %></li>
+            <li><%= @lesson.duration %> </li>
             <li><%= @lesson.neighborhood %></li>
           </ul>
           <%= f.submit "Book it", class: "btn btn-primary", style: "width: 100%" %>

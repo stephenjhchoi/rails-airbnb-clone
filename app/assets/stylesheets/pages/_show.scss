@@ -50,6 +50,7 @@
 
 .book-lesson {
   margin-left: 50px;
+  border-color: #F6F6F6;
   h4 {
     font-size: 18px;
     margin-top: 6px;
@@ -58,4 +59,8 @@
   background-color: white;
   padding: 15px;
   }
+}
+
+.justify_text{
+  text-align: justify;
 }
