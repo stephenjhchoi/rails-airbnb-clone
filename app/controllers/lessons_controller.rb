@@ -6,7 +6,7 @@ class LessonsController < ApplicationController
     @lessons = Lesson.all
     @lessons = @lessons.where(neighborhood: params[:neighborhood]) if !params[:neighborhood].blank?
     @lessons = @lessons.where(category: params[:category]) if !params[:category].blank?
-    @lessons = @lessons.where("Date(start_date_time) >= ?", Date.parse(params[:date])) if params[:date]
+    @lessons = @lessons.where("Date(start_date_time) >= ?", Date.parse(params[:date])) if !params[:date].blank?
     @hash = Gmaps4rails.build_markers(@lessons) do |lesson, marker|
       marker.lat lesson.latitude
       marker.lng lesson.longitude
