@@ -61,8 +61,9 @@
 }
 
 .dashboard {
+  margin-bottom: 40px;
   .coach-card {
-    margin: 0;
+    margin: 20px 0;
     width: auto;
     position: relative;
   }
@@ -88,26 +89,43 @@
       letter-spacing: 1.5px;
     }
   }
-  .btn-accept{
+  .btn-accepted{
     background-color: #2FBF71;
     border-color: #2FBF71;
     color: white;
     font-size: 15px;
     font-weight: bold;
+    padding: 10px 20px;
+    z-index: 1000000;
   }
-  .btn-accept:hover{
+  .btn-accepted:hover{
     background-color: #279D5D;
     border-color: #279D5D;
   }
-  .btn-decline{
+  .btn-declined{
     background-color: #FF5964;
     border-color: #FF5964;
     color: white;
     font-size: 15px;
     font-weight: bold;
+    margin-left: 25px;
+    padding: 10px 20px;
+    z-index: 100000;
   }
-  .btn-decline:hover{
+  .btn-declined:hover{
     background-color: #D14952;
     border-color: #D14952;
   }
+}
+.buttons{
+  input {
+    letter-spacing: 1.5px;
+  }
+  padding-top: 5px;
+  padding-bottom: 15px;
+  border-radius: 0 0 4px 4px;
+  border: 0.5px solid rgba(167, 185, 221, 0.43);
+  border-top-width: 0;
+  display: flex;
+  justify-content: space-around;
 }

@@ -1,10 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-2">
+    <div class="col-md-3 text-center">
       <h2>My Dashboard</h2>
-
+      <%= image_tag current_user.facebook_picture_url, style: 'width: 200px;'%>
+      <%= link_to 'Edit profile', edit_user_registration_path %>
+      <%= link_to 'Create lesson', new_lesson_path %>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-9">
       <div class="">
       <!-- all bookibgs -->
         <div class="dashboard">
@@ -27,7 +29,7 @@
             <% current_user.lessons.each do |lesson| %>
               <div class="col-md-4">
                 <% if lesson.booking.status == 'pending' %>
-                  <%= render "dashboard-card-coach", lesson: lesson %>
+                  <%= render "dashboard-card-coach-pending", lesson: lesson %>
                 <% else %>
                   <%= render "dashboard-card-coach", lesson: lesson %>
                 <% end %>
@@ -35,7 +37,6 @@
             <% end %>
           </div>
         </div>
-
       </div>
     </div>
   </div>

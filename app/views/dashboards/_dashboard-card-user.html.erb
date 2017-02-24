@@ -2,17 +2,17 @@
   <div class="coach-card-image" style="background-image: url(<%= image_path(booking.lesson.category + '.jpg') %>);">
     <%= image_tag booking.lesson.user.facebook_picture_url, :class => "avatar_card"%>
     <div class="coach-card-status <%= booking.status %>">
-      <p><%= booking.status %></p>
+      <p><%= booking.status.capitalize %></p>
     </div>
   </div>
   <div class="coach-card-info">
+    <p class="color-incard"><strong><%= booking.lesson.category %></strong></p>
     <p class="color-incard"><strong>£<%= booking.lesson.price %></strong></p>
-    <p><strong><%= booking.lesson.user.first_name %> <%= booking.lesson.user.last_name %></strong></p>
+    <p><strong><%= booking.lesson.duration %> min</strong></p>
     <p><strong><%= booking.lesson.neighborhood %></strong></p>
-    <p><strong><%= booking.lesson.duration %>min</strong></p>
-
+    <p><strong><%= booking.lesson.start_date_time.strftime("%b %e, %l:%M %p") %></strong></p>
     <br>
-    <p><strong><p class="desc_under">Description: <%= truncate(booking.lesson.description, length: 60) %></p></strong></p>
+    <p><strong><span class="desc_under">Description:</span></strong> <%= truncate(booking.lesson.description, length: 60) %></p>
   </div>
   <div class="coach-card-title">
     <h4><%= booking.lesson.user.first_name%> <%= booking.lesson.user.last_name.first%></h4>

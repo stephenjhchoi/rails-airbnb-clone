@@ -9,7 +9,7 @@
 
           <%= image_tag lesson.user.facebook_picture_url, :class => "avatar_card"%>
         </div>
-        
+
         <div class="coach-card-info">
           <p class="color-incard"><strong><%= lesson.category %></strong></p>
 
@@ -35,7 +35,7 @@
       <div class="coach-card-cat">
         <p><%= lesson.category.upcase %></p>
       </div>
-        <%= link_to "this", lesson_path(lesson), class: "coach-card-link" %>
+        <%= link_to "", lesson_path(lesson), class: "coach-card-link" %>
       </div>
       <% end %>
     </div>

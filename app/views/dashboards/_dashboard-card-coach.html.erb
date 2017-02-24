@@ -2,16 +2,17 @@
   <div class="coach-card-image" style="background-image: url(<%= image_path(lesson.category + '.jpg') %>);">
     <%= image_tag lesson.user.facebook_picture_url, :class => "avatar_card"%>
     <div class="coach-card-status <%= lesson.booking.status %>">
-      <p><%= lesson.booking.status %></p>
+      <p><%= lesson.booking.status.capitalize %></p>
     </div>
   </div>
   <div class="coach-card-info">
+    <p class="color-incard"><strong><%= lesson.category %></strong></p>
     <p class="color-incard"><strong>£<%= lesson.price %></strong></p>
+    <p><strong><%= lesson.duration %> min</strong></p>
     <p><strong><%= lesson.neighborhood %></strong></p>
-    <p><strong><%= lesson.duration %>min</strong></p>
-
+    <p><strong><%= lesson.start_date_time.strftime("%b %e, %l:%M %p") %></strong></p>
     <br>
-    <p><strong><p class="desc_under">Description: <%= truncate(lesson.description, length: 60) %></p></strong></p>
+    <p><strong><span class="desc_under">Description:</span></strong> <%= truncate(lesson.description, length: 60) %></p>
   </div>
   <div class="coach-card-title">
     <h4><%= lesson.booking.user.first_name%> <%= lesson.booking.user.last_name.first%></h4>
@@ -31,7 +32,5 @@
   <%= link_to "", lesson_path(lesson), class: "card-link" %>
 
 </div>
-  <%= simple_form_for lesson.booking do |f| %>
-    <%= f.submit 'Accept', name: 'status', class: "btn btn-accept" %>
-    <%= f.submit 'Decline', name: 'status', class: "btn btn-decline" %>
-  <% end %>
+
+
