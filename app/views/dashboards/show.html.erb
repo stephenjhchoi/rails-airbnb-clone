@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-md-3 text-center">
       <h2>My Dashboard</h2>
-      <%= image_tag current_user.facebook_picture_url, style: 'width: 200px;'%>
-      <%= link_to 'Edit profile', edit_user_registration_path %>
-      <%= link_to 'Create lesson', new_lesson_path %>
+      <%= image_tag current_user.facebook_picture_url, style: 'width: 200px; margin-top: 20px;'%>
+      <div class="bt-back-home" style="margin: 30px 0; padding: 14px 40px 12px;;"><%= link_to 'Edit profile', edit_user_registration_path %></div>
+      <div class="bt-back-home"><%= link_to 'Create lesson', new_lesson_path%></div>
     </div>
     <div class="col-md-9">
       <div class="">
@@ -28,10 +28,12 @@
             <!-- Loop on Request -->
             <% current_user.lessons.each do |lesson| %>
               <div class="col-md-4">
-                <% if lesson.booking.status == 'pending' %>
-                  <%= render "dashboard-card-coach-pending", lesson: lesson %>
-                <% else %>
-                  <%= render "dashboard-card-coach", lesson: lesson %>
+                <% if !lesson.booking.nil? %>
+                  <% if lesson.booking.status == 'pending' %>
+                    <%= render "dashboard-card-coach-pending", lesson: lesson %>
+                  <% else %>
+                    <%= render "dashboard-card-coach", lesson: lesson %>
+                  <% end %>
                 <% end %>
               </div>
             <% end %>

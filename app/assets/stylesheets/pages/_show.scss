@@ -110,7 +110,6 @@
     font-weight: bold;
     margin-left: 25px;
     padding: 10px 20px;
-    z-index: 100000;
   }
   .btn-declined:hover{
     background-color: #D14952;
@@ -128,4 +127,9 @@
   border-top-width: 0;
   display: flex;
   justify-content: space-around;
+}
+
+.result-message{
+  margin-top: 150px;
+  margin-bottom: 35px;
 }
